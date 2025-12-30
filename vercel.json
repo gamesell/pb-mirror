@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/bot.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/set-webhook.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/bot",
+      "dest": "/api/bot.js",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
+      "src": "/api/set-webhook",
+      "dest": "/api/set-webhook.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/",
+      "dest": "/api/bot.js",
+      "methods": ["GET"]
+    }
+  ]
+}
